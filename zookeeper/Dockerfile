@@ -17,7 +17,6 @@ WORKDIR /tmp
 RUN mkdir -p /opt/zookeeper/${ZOOKEEPER_VERSION} && \
     wget https://dlcdn.apache.org/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/apache-zookeeper-${ZOOKEEPER_VERSION}-bin.tar.gz -O apache-zookeeper.tar.gz && \
     tar -xf apache-zookeeper.tar.gz -C /opt/zookeeper/${ZOOKEEPER_VERSION} --strip-components=1 && \
-    chown root:root -R /opt/zookeeper/${ZOOKEEPER_VERSION} && \
     rm -f apache-zookeeper.tar.gz
 
 RUN useradd -s /bin/bash -m -d ${APPDIR} zookeeper && \
