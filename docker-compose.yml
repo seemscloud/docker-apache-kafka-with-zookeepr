@@ -35,3 +35,5 @@ services:
       context: ./kafka
       args:
         KAFKA_VERSION: "2.8.0"
+    environment:
+      ZOOKEEPER_HOSTS: "zookeeper1:2181,zookeeper2:2181,zookeeper3:2181"

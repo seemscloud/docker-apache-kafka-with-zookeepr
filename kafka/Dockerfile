@@ -27,11 +27,13 @@ RUN useradd -s /bin/bash -m -d ${APPDIR} kafka && \
 WORKDIR ${APPDIR}
 USER kafka
 
-RUN mkdir config logs && \
+RUN mkdir config logs data && \
     chmod 700 *
 
 COPY --chown=kafka ./files/log4j.properties config/
 COPY --chown=kafka ./files/server.properties config/
 COPY --chown=kafka entrypoint.sh .
+
+VOLUME ["${APPDIR}/data"]
 
 ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
