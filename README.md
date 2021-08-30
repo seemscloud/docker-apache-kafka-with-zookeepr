@@ -1,1 +1,1 @@
-# docker-apache-kafka-zookeepr
+# Docker Apache Kafka with ZooKeeper
