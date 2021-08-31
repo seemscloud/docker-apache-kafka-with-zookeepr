@@ -23,32 +23,39 @@ zkCli.sh ls /brokers/topics
 ### Topics
 
 ```bash
-kafka-topics.sh --list --zookeeper zookeeper1:2181 
+kafka-topics.sh \
+  --list \
+  --zookeeper zookeeper1:2181 
 ```
 
 ```bash
 kafka-topics.sh \
-  --create \
   --topic example \
+  --create \
   --zookeeper zookeeper1:2181 \
   --partitions 6 --replication-factor 1
 ```
 
 ```bash
 kafka-topics.sh \
-  --delete \
   --topic example \
+  --delete \
   --zookeeper zookeeper1:2181
 ```
 
 ### Produce / Consume
 
 ```bash
-kafka-console-producer.sh --topic example0 --broker-list localhost:9092 
+kafka-console-producer.sh \
+  --topic example \
+  --broker-list localhost:9092 
 ```
 
 ```bash
-kafka-console-consumer.sh --topic example0 --from-beginning --bootstrap-server localhost:9092
+kafka-console-consumer.sh \
+  --topic example \
+  --from-beginning \
+  --bootstrap-server localhost:9092
 ```
 
 ```bash
