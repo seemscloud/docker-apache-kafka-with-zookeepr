@@ -23,19 +23,22 @@ zkCli.sh ls /brokers/topics
 ### Topics
 
 ```bash
-kafka-topics.sh --list --zookeeper zookeeper1:2181
+kafka-topics.sh --list --zookeeper zookeeper1:2181 
 ```
 
 ```bash
-for i in `seq 0 10` ; do
-  kafka-topics.sh --create --zookeeper zookeeper1:2181 --replication-factor 2 --partitions 3 --topic "example${i}"
-done
+kafka-topics.sh \
+  --create \
+  --topic example \
+  --zookeeper zookeeper1:2181 \
+  --partitions 6 --replication-factor 1
 ```
 
 ```bash
-for i in `seq 0 10` ; do
-  kafka-topics.sh --delete --zookeeper zookeeper1:2181 --topic "example${i}"
-done
+kafka-topics.sh \
+  --delete \
+  --topic example \
+  --zookeeper zookeeper1:2181
 ```
 
 ### Produce / Consume
@@ -46,4 +49,16 @@ kafka-console-producer.sh --topic example0 --broker-list localhost:9092
 
 ```bash
 kafka-console-consumer.sh --topic example0 --from-beginning --bootstrap-server localhost:9092
+```
+
+```bash
+kafka-producer-perf-test.sh \
+  --topic example \
+  --num-records 50000000 \
+  --record-size 100 \
+  --throughput -1 \
+  --producer-props acks=1 \
+  bootstrap.servers=localhost:9092 \
+  buffer.memory=67108864 \
+  batch.size=8196
 ```
