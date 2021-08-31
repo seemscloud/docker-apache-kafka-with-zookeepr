@@ -1,6 +1,19 @@
 version: '3.9'
 
 services:
+  kowl:
+    container_name: kowl
+    hostname: kowl
+    build:
+      context: ./kowl
+      args:
+        GO_VERSION: "1.17"
+        NODE_VERSION: "14.17.6"
+        KOWL_VERSION: "1.4.0"
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
   zookeeper1:
     container_name: zookeeper1
     hostname: zookeeper1

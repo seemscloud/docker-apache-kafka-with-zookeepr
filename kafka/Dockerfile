@@ -6,6 +6,7 @@ ARG APPDIR="/opt/app"
 ENV DEBIAN_FRONTEND=noninteractive
 ENV APPDIR=${APPDIR}
 ENV PATH="/opt/kafka/${KAFKA_VERSION}/bin:${PATH}"
+ENV LOG_DIR="${APPDIR}/logs"
 
 SHELL ["/bin/bash", "-c"]
 

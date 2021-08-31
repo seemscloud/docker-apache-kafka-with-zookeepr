@@ -6,6 +6,7 @@ ARG APPDIR="/opt/app"
 ENV DEBIAN_FRONTEND=noninteractive
 ENV APPDIR=${APPDIR}
 ENV PATH="/opt/zookeeper/${ZOOKEEPER_VERSION}/bin:${PATH}"
+ENV ZOO_LOG_DIR=${APPDIR}/logs
 
 SHELL ["/bin/bash", "-c"]
 
