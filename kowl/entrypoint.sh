@@ -1,3 +1,5 @@
 #!/bin/bash
 
-kowl
+sleep 5
+
+./kowl

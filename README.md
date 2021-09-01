@@ -30,10 +30,10 @@ kafka-topics.sh \
 
 ```bash
 kafka-topics.sh \
-  --topic example \
+  --topic example_eee \
   --create \
   --zookeeper zookeeper1:2181 \
-  --partitions 6 --replication-factor 1
+  --partitions 16 --replication-factor 3
 ```
 
 ```bash
@@ -60,8 +60,8 @@ kafka-console-consumer.sh \
 
 ```bash
 kafka-producer-perf-test.sh \
-  --topic example \
-  --num-records 50000000 \
+  --topic example_eee \
+  --num-records 10000000 \
   --record-size 100 \
   --throughput -1 \
   --producer-props acks=1 \

@@ -51,4 +51,4 @@ USER kowl
 
 COPY --chown=kowl ./entrypoint.sh .
 
-CMD ["./kowl"]
+ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
