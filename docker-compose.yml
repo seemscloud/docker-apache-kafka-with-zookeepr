@@ -67,10 +67,6 @@ services:
     volumes:
       - kafka1-data:/opt/app/data
       - kafka1-logs:/opt/app/logs
-    depends_on:
-      - zookeeper1
-      - zookeeper2
-      - zookeeper3
   kafka2:
     container_name: kafka2
     hostname: kafka2
@@ -84,10 +80,6 @@ services:
     volumes:
       - kafka2-data:/opt/app/data
       - kafka2-logs:/opt/app/logs
-    depends_on:
-      - zookeeper1
-      - zookeeper2
-      - zookeeper3
   kafka3:
     container_name: kafka3
     hostname: kafka3
@@ -101,10 +93,6 @@ services:
     volumes:
       - kafka3-data:/opt/app/data
       - kafka3-logs:/opt/app/logs
-    depends_on:
-      - zookeeper1
-      - zookeeper2
-      - zookeeper3
 
 volumes:
   zookeeper1-data:
